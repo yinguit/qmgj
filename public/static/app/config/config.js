@@ -43,9 +43,14 @@ appLogin.config(["$stateProvider", "$urlRouterProvider", function($stateProvider
             templateUrl: '/static/app/view/vip.html',
             controller: 'vipController'
         })
-        .state('vip.main',{
+        .state('vip.main',{//个人主页
             url: '/main',
             templateUrl: '/static/app/view/vip.main.html',
             controller: 'vipMainController'
+        })
+        .state('vip.info',{// 个人信息
+            url: '/info',
+            templateUrl: '/static/app/view/vip.info.html',
+            controller: "vipInfoController"
         })
 }]);

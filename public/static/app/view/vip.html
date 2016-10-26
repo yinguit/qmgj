@@ -4,7 +4,7 @@
         <div class="user-group clearfix">
             <!-- 头像 -->
             <div class="img-item">
-                <img src="static/app/images/userhead.png" alt="">
+                <img ng-src="{{userinfo.userImg}}" alt="">
                 <div class="sprite-box">
                     <span class="sprite-phone"></span>
                     <span class="sprite-msg"></span>
@@ -13,15 +13,15 @@
             </div>
             <!-- 信息 -->
             <div class="info-item">
-                <h1>全民共进<span>下午好！</span></h1>
+                <h1>{{userinfo.username}}<span>{{userinfo.timeMoon}}好！</span></h1>
                 <div class="clearfix safe-box">
                     <div class="safe-box1">账户安全等级：</div>
                     <div class="safe-box2">
-                        <div style="width: 66%"></div>
+                        <div style="width: {{['0%','33%','66%','100%'][userinfo.safe]}}"></div>
                     </div>
-                    <div class="safe-box3">中</div>
+                    <div class="safe-box3">{{['--','低','中','高'][userinfo.safe]}}</div>
                 </div>
-                <p>上次登录时间：{{1477465615812 | date:'yyyy-MM-dd HH:mm:ss' }}</p>
+                <p>上次登录时间：{{ userinfo.lastTime| date:'yyyy-MM-dd HH:mm:ss' }}</p>
             </div>
         </div>
     </section>
@@ -31,7 +31,7 @@
     	<div class="user-nav">
     		<ul>
     			<li><a ui-sref="vip.main" ui-sref-active="active">个人主页</a></li>
-    			<li><a>个人信息</a></li>
+    			<li><a ui-sref="vip.info" ui-sref-active="active">个人信息</a></li>
     			<li><a>安全设置</a></li>
     			<li><a>关注的圈子</a></li>
     			<li><a>购买记录</a></li>
