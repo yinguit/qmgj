@@ -43,4 +43,9 @@ appLogin.config(["$stateProvider", "$urlRouterProvider", function($stateProvider
             templateUrl: '/static/app/view/vip.html',
             controller: 'vipController'
         })
+        .state('vip.main',{
+            url: '/main',
+            templateUrl: '/static/app/view/vip.main.html',
+            controller: 'vipMainController'
+        })
 }]);

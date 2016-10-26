@@ -20,7 +20,7 @@ html(ng-app="qmgj_login")
         li.search
           input(placeholder="请输入查找内容")
       div.loginBox
-        a= username
+        a(ui-sref="vip.main")= username
         a(ng-click="userLogout()") 退出
     div(ui-view)
     footer
