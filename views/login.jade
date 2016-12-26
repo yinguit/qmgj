@@ -8,20 +8,21 @@ html(ng-app="qmgj_unlogin")
     script(src="static/app/bower_components/angular-ui-router/release/angular-ui-router.js")
     script(src="static/app/app.min.js")
   body
-    header.fn-clear
-      ul.fn-clear
-        li.logoBox
-          span.cl1 全民
-          span.cl2 共进
-        a(ui-sref="home")
-          li.active.nav(ui-sref-active="active") 首页
-        li.nav 节目专栏
-        li.nav 圈子
-        li.search
-          input(placeholder="请输入查找内容")
-      div.loginBox
-        a(ui-sref='login') 登录
-        a(ui-sref='reg') 注册
+    header
+      div.header-box.fn-clear
+        ul.fn-clear
+          li.logoBox
+            span.cl1 全民
+            span.cl2 共进
+          a(ui-sref="home")
+            li.active.nav(ui-sref-active="active") 首页
+          li.nav 节目专栏
+          li.nav 圈子
+          li.search
+            input(placeholder="请输入查找内容")
+        div.loginBox
+          a(ui-sref='login') 登录
+          a(ui-sref='reg') 注册
     div(ui-view)
     footer
       div.navList.clearfix
