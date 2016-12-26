@@ -72,7 +72,6 @@ module.exports = function(app) {
      */
     app.post('/user/login', checkNotLogin);
     app.post('/user/login', function(req, res) {
-    	console.log('+++++++++++++++++++++++++++++++++++++++')
         var md5 = crypto.createHash('md5'),
             phone = req.body.phone,
             password = md5.update(req.body.password).digest('hex');
@@ -101,29 +100,6 @@ module.exports = function(app) {
             });
             UserEntity.update({_id:user._id},{$set: {lastLoginTime: new Date()}}).exec(); 
         });
-    });
-
-    // get 方式登陆
-    app.get('/user/login',function(req, res){
-        console.log( req.query );
-        var phone = req.query.phone;
-        var pwd = req.query.pwd;
-        if( phone === '18888888888' && pwd === '123456' ){
-            var user = {
-                phone: req.query.phone,
-                name: '土豪'
-            }
-            req.session.user = user;
-            res.send({
-                resultCode: '0000',
-                result: 'success login'
-            });
-        }else{
-            res.send({
-                resultCode: '0001',
-                result: 'error login'
-            });
-        }
     });
 
     /**
