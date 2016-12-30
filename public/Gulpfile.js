@@ -7,8 +7,6 @@ var serverPath = './static/',//服务器资源路径
     rootPath = './static',//根性
     staticDir = 'static/app/',//静态资源根目录
     lessFiles = [staticDir + 'less/global.less',staticDir + 'less/*.less'],//less文件路径
-    hashFiles = staticDir + '**/*.min',//hash处理文件 hashFiles+".js"
-    htmlDir = './static/app/index.html',//页面基础路径
     jsArr = [
         "static/app/config/config.js",
         "static/app/controller/**/*.js"
@@ -73,7 +71,7 @@ gulp.task("js-min",function(){
         .pipe(plugins.concat("app.min.js"))
         .pipe(gulp.dest("static/app/"));
 });
-gulp.task("default",['look','less-min','js-min']);
+gulp.task("default",['look','less-min','js-watch']);
 gulp.task("clean",function(){
     return gulp.src(staticDir + '*.min-*', {read: false})
     .pipe(plugins.clean());
